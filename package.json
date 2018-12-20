@@ -1,5 +1,5 @@
 {
-  "name": "use-store",
+  "name": "react-use-store",
   "version": "1.0.0",
   "description": "Global data management hooks like redux.",
   "main": "./lib/index.js",
@@ -8,8 +8,9 @@
   ],
   "author": "Lizhooh",
   "license": "MIT",
-  "repository": "https://github.com/Lizhooh/use-store",
+  "repository": "https://github.com/Lizhooh/react-use-store",
   "keywords": [
+    "react-use-store",
     "redux",
     "react",
     "hooks",

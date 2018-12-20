@@ -1,21 +1,20 @@
-# use-store
+# react-use-store
 Global data management hooks like redux.
 
 ## install
 
 ```sh
-yarn add use-store
+yarn add react-use-store
 yarn add redux redux-store-init
 ```
 
 ## usage
-
 First, create a store, just like using react-redux.
 
 ```js
 import React from 'react';
 import Store from 'redux-store-init';
-import { Provider } from 'use-store';
+import { Provider } from 'react-use-store';
 import * as reducers from './reducers';
 import App from './app';
 
@@ -30,11 +29,11 @@ ReactDOM.render(
 );
 ```
 
-To create a Reducer in the reducers.js file, you need to use the createReducer function provided by the use-store. Its first argument is the name of the module, and the second argument is the initial state value.
+To create a Reducer in the reducers.js file, you need to use the createReducer function provided by the react-use-store. Its first argument is the name of the module, and the second argument is the initial state value.
 
 ```js
 // reducers.js
-import { createReducer } from 'use-store';
+import { createReducer } from 'react-use-store';
 
 // createReducer(name, initState)
 export const index = createReducer('index', {
@@ -47,7 +46,7 @@ You can use commit to submit updates.
 
 ```js
 import React from 'react';
-import useStore from 'use-store';
+import useStore from 'react-use-store';
 
 export default function app() {
     const [state, commit] = useStore('index');

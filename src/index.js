@@ -5,3 +5,4 @@ export { default as Provider } from './provider';
 
 export const useStore = _useStore;
 export default _useStore;
+
