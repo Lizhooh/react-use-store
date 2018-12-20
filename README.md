@@ -1,14 +1,14 @@
-# react-use-store
+# React-use-store
 Global data management hooks like redux.
 
-## install
+## Install
 
 ```sh
 yarn add react-use-store
 yarn add redux redux-store-init
 ```
 
-## usage
+## Usage
 First, create a store, just like using react-redux.
 
 ```js
