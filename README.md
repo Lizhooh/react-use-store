@@ -49,18 +49,21 @@ import React from 'react';
 import useStore from 'react-use-store';
 
 export default function app() {
-    const [state, commit] = useStore('index');
-
-    const onClick = e => {
-        commit({ count: state.count + 1 });
-    };
+    const [state, commit, rootState] = useStore('index');
 
     return (
         <div>
             <div>Count: {state.count}</div>
-            <button onClick={onClick}>Update</button>
+            <button onClick={e => {
+                commit({ count: state.count + 1 })
+            }}>update</button>
+
+            <pre style={{ fontFamily: 'consolas' }}>
+                {JSON.stringify(rootState, null, 2)}
+            </pre>
         </div>
     );
 }
 ```
 
+![](./image/demo.gif)
