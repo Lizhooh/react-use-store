@@ -7,7 +7,7 @@ export interface IProviderProps {
 
 export interface IUseStoreReturn {
     [0]: object | any,
-    [1]: (name: string, callback: (state, initState, rootState) => object | any) => void,
+    [1]: (cb: (state, initState, rootState) => object | object) => void,
 }
 
 export class Provider extends React.Component<IProviderProps> { }
