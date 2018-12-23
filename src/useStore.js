@@ -10,17 +10,23 @@ export default function (name) {
         return () => unsubscribe();
     });
 
-    function commit(cb) {
-        if (typeof cb === 'function') {
+    function commit(...arg) {
+        if (typeof arg[0] === 'object') {
+            return store.dispatch({
+                type: name || '$$root',
+                newState: state => ({ ...state, ...cb }),
+            });
+        }
+        else if (typeof arg[0] === 'function') {
             return store.dispatch({
                 type: name || '$$root',
                 newState: (state, initState) => ({ ...state, ...cb(state, initState, rootState) }),
             });
         }
-        else if (typeof cb === 'object') {
+        else if (typeof arg[0] === 'string' && typeof arg[1] === 'function') {
             return store.dispatch({
-                type: name || '$$root',
-                newState: state => ({ ...state, ...cb }),
+                type: arg[0] || '$$root',
+                newState: (state, initState) => ({ ...state, ...cb(state, initState, rootState) }),
             });
         }
     }

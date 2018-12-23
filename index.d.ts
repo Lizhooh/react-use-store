@@ -5,9 +5,19 @@ export interface IProviderProps {
     children?: any,
 }
 
+interface ICommit {
+    (newState: object): void,
+    (cb: (state, initState, rootState) => object): void,
+    (name: string, cb: (state, initState, rootState) => object): void,
+}
+
 export interface IUseStoreReturn {
+    /** state */
     [0]: object | any,
-    [1]: (cb: (state, initState, rootState) => object | object) => void,
+    /** commit */
+    [1]: ICommit,
+    /** rootState */
+    [2]: object | any,
 }
 
 export class Provider extends React.Component<IProviderProps> { }

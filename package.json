@@ -1,6 +1,6 @@
 {
   "name": "react-use-store",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Global data management hooks like redux.",
   "main": "./lib/index.js",
   "files": [
