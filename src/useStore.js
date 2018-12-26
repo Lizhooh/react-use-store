@@ -14,19 +14,19 @@ export default function (name) {
         if (typeof arg[0] === 'object') {
             return store.dispatch({
                 type: name || '$$root',
-                newState: state => ({ ...state, ...cb }),
+                newState: state => ({ ...state, ...arg[0] }),
             });
         }
         else if (typeof arg[0] === 'function') {
             return store.dispatch({
                 type: name || '$$root',
-                newState: (state, initState) => ({ ...state, ...cb(state, initState, rootState) }),
+                newState: (state, initState) => ({ ...state, ...arg[0](state, initState, rootState) }),
             });
         }
         else if (typeof arg[0] === 'string' && typeof arg[1] === 'function') {
             return store.dispatch({
                 type: arg[0] || '$$root',
-                newState: (state, initState) => ({ ...state, ...cb(state, initState, rootState) }),
+                newState: (state, initState) => ({ ...state, ...arg[1](state, initState, rootState) }),
             });
         }
     }
